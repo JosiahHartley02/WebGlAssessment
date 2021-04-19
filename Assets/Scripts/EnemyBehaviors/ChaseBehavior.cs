@@ -1,26 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ChaseBehavior : MonoBehaviour
 {
-    public float Speed;
-
+    [Tooltip("The object the enemy will be seeking towards.")]
     [SerializeField]
-    private GameObject _player;
+    private GameObject _target;
+    private NavMeshAgent _agent;
     private Rigidbody _rigidbody;
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 directionToPlayer = (_player.transform.position - transform.position).normalized * Speed * Time.deltaTime;
+        //If a target hasn't been set return
+        if (!_target)
+            return;
 
-        //Call to make the rigidbody smoothly move to the desired position
-        _rigidbody.MovePosition(transform.position + directionToPlayer);
+        _agent.SetDestination(_target.transform.position);
     }
 }
