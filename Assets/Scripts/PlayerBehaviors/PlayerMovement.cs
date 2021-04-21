@@ -24,22 +24,9 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    bool AbleToJump()
-    {
-        if (_jumping)
-            return false;
-        return true; ;
-    }
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 jumpForce = new Vector3(0, 0, 0);
-        //Checks to see if the player is able to jump to narrow down the amount of functions ran per update
-
-        if (Input.GetButtonDown("Jump") && AbleToJump())
-        {
-            jumpForce = new Vector3(0, _jumpHeight, 0);
-        }
         //Create a ray that starts at a screen point
         RaycastHit hit;
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
@@ -60,6 +47,6 @@ public class PlayerMovement : MonoBehaviour
         //The move direction is scaled by the movement speed to get velocity
         Vector3 velocity = moveDir * _moveSpeed * Time.deltaTime;
         //Call to make the rigidbody smoothly move to the desired position
-        _rigidbody.MovePosition(transform.position + velocity + jumpForce);
+        _rigidbody.MovePosition(transform.position + velocity);
     }
 }

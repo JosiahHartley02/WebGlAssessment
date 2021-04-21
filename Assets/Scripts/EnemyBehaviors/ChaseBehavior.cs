@@ -15,6 +15,8 @@ public class ChaseBehavior : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _agent = GetComponent<NavMeshAgent>();
+        if (!_target)
+            _target = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
