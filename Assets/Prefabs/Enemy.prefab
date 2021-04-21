@@ -193,7 +193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f65c17c99a618b47821b83296eb0b36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tag: Player
+  Tag: KillZone
+  GameManager: {fileID: 0}
 --- !u!65 &2741722975496661428
 BoxCollider:
   m_ObjectHideFlags: 0
