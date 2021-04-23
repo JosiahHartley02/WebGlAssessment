@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //The movement speed that the player will maintain
     [Tooltip("Player's Speed")]
     [SerializeField]
     private float _moveSpeed = 0;
-    [Tooltip("The distance the Player will travel per Second")]
-    [SerializeField]
-    private float _jumpHeight;
 
-    private bool _jumping;
-
-    [SerializeField]
+    //Reference to the main camera
     private Camera _camera;
 
     private Rigidbody _rigidbody;

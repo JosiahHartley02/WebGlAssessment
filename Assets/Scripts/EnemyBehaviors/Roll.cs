@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Roll : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
+        //Roll backwards on the forward rotation vector
         transform.Rotate(transform.forward, -2);
     }
 }

@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    //Reference to the gameObject that we want to spawn
     [SerializeField]
     private GameObject spawnThis;
     [SerializeField]
+    //The time inbetween spawns
     private float spawnBuffer;
+    //The toggle switch for spawning enemies
     private bool GameOver;
     // Start is called before the first frame update
     void Start()
     {
+        //Creates a loop
         StartCoroutine(SpawnEnemies());
     }
 
